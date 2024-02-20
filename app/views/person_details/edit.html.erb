@@ -1,0 +1,40 @@
+<%= stylesheet_link_tag 'application' %>
+
+<h1>Update person detail</h1>
+<%= form_with(model: [@person, @person_detail], url: person_person_detail_path(@person, @person_detail), method: :patch, local: true) do |form| %>
+
+
+  <% if @person_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person_detail.errors.count, "error") %> prohibited this person_detail from being saved:</h2>
+      <ul>
+        <% @person_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :contact %>
+    <%= form.text_field :contact %>
+  </div>
+    <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+    <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :contry %>
+  </div>
+  </div>
+    <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<br>
+  <%= button_to 'Back', persons_path, method: :get%>

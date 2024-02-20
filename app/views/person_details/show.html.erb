@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'application' %>
+
+<h1>Persons details</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Person ID</th>
+      <th>Person name</th>
+      <th>Person email</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Country</th>
+      <th>Zipcode</th>
+    </tr>
+  </thead>
+  <%#= link_to "Create person", new_person_path, data: { "turbo-method": :post } %>
+  <tbody>
+      <tr>
+        <td><%= @person_detail&.person_id %></td>
+        <td><%= @person&.name %></td>
+        <td><%= @person&.email %></td>
+        <td><%= @person_detail&.address %></td>
+        <td><%= @person_detail&.contact %></td>
+        <td><%= @person_detail&.contry %></td>
+        <td><%= @person_detail&.zipcode %></td>
+        <td><%#= button_to 'Delete', person_person_detail_path(@person_detail), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
+  <%= button_to 'Back', persons_path, method: :get%>
