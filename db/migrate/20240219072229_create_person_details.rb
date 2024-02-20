@@ -1,10 +1,9 @@
 class CreatePersonDetails < ActiveRecord::Migration[7.0]
   def change
     create_table :person_details do |t|
-      t.integer :contact
-      t.string :address
-      t.string :contry
-      t.integer :zipcode
+      t.string :phone
+      t.string :title
+      t.integer :age
       t.references :person, null: false, foreign_key: true
 
       t.timestamps

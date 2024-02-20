@@ -16,38 +16,34 @@ class PersonsController < ApplicationController
           redirect_to persons_path, notice: "Person was successfully created."
         else
           render json: { errors: @person.errors.full_messages }, status: :unprocessable_entity
-          # render json: @person, status: :ok
         end
     end
 
-    # def edit
-    #   @person
-    # end
 
-      def update
-          unless @person.update(person_params)
-            redirect_to persons_path, notice: "Person was successfully Updated.", status: :ok
-           else
-               render json: @person, status: :ok
-          end
-      end
+    def update
+        unless @person.update(person_params)
+          redirect_to persons_path, notice: "Person was successfully Updated.", status: :ok
+         else
+             render json: @person, status: :ok
+        end
+    end
 
-      def show
-          render json: @person
-      end
+    def show
+        render json: @person
+    end
 
-      def destroy    
-          @person.destroy
-          redirect_to persons_path, notice: "Person was successfully destroyed."
-      end
+    def destroy    
+        @person.destroy
+        redirect_to persons_path, notice: "Person was successfully destroyed."
+    end
 
 
-      private
-      
-      def find_person
-        @person = Person.find(params[:id])
-      end
-      def person_params
-        params.require(:person).permit(:name, :email )
-      end
+    private
+    
+    def find_person
+      @person = Person.find(params[:id])
+    end
+    def person_params
+      params.require(:person).permit(:name, :email )
+    end
 end

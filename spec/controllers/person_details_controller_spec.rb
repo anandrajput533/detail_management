@@ -6,7 +6,7 @@ RSpec.describe PersonDetailsController, type: :controller do
  
    before do
     @person = FactoryBot.create(:person)
-    @person_detail = PersonDetail.create(person_id: @person.id, address: "test", contact: "78785575577", contry: "test", zipcode: "453433") 
+    @person_detail = PersonDetail.create(person_id: @person.id, title: "test", phone: "78785575577",  age: "45") 
    end
 
   describe 'GET #index' do
@@ -28,13 +28,13 @@ describe 'POST #create' do
 
   context 'with valid parameters' do
     it 'creates a person_detail and redirects to persons_path' do
-      post :create, params: { person_id: person.id, person_detail: { address: "test", contact: "78785575577", country: "test", zipcode: "453433" } }
+      post :create, params: { person_id: person.id, person_detail: { title: "test", phone: "78785575577", age: "45" } }
       expect(response).to redirect_to(persons_path)
     end
 
     it 'creates a person_detail and redirects to persons_path' do
         @person1 = FactoryBot.create(:person)
-        post :create, params: { person_id: @person1.id, person_detail: { address: "test", contact: "78785575577", country: "test", zipcode: "453433" } }
+        post :create, params: { person_id: @person1.id, person_detail: { title: "test", phone: "78785575577", age: "45" } }
         expect(response).to redirect_to(persons_path)
       end
   end
@@ -42,7 +42,7 @@ end
 
   describe 'GET #update' do
     it 'Updating a person_detail' do
-      put :update, params: {person_id: @person.id,id: @person_detail.id,person_detail: {address: "test", contact: "78785575577", contry: "test", zipcode: "453433"}}
+      put :update, params: {person_id: @person.id,id: @person_detail.id,person_detail: {title: "test", phone: "78785575577",  age: "45"}}
     expect(response).to redirect_to(person_person_detail_path(@person, @person_detail))
     end
   end

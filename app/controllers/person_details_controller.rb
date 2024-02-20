@@ -50,6 +50,6 @@ class PersonDetailsController < ApplicationController
         @person_detail = @person.person_detail
       end
       def person_detail_params
-        params.require(:person_detail).permit(:contact, :address, :contry, :zipcode )
+        params.require(:person_detail).permit(:title, :age, :phone)
       end
 end

@@ -19,10 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_19_072229) do
   end
 
   create_table "person_details", force: :cascade do |t|
-    t.integer "contact"
-    t.string "address"
-    t.string "contry"
-    t.integer "zipcode"
+    t.string "phone"
+    t.string "title"
+    t.integer "age"
     t.integer "person_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
